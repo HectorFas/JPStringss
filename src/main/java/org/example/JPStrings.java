@@ -8,7 +8,7 @@ public class JPStrings  {
      * @param str El string a capitalizar
      * @return El texto capitalizado
      */
-    public String capitalizar(String str) {
+    public static String capitalizar(String str) {
         char primeraletra = str.charAt(0);
 
         if (str == null) return null;
