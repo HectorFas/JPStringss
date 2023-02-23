@@ -21,10 +21,10 @@ public class JPStrings  {
 
     /**
      *
-     * @param text
-     * @param intervalo
-     * @param separador
-     * @return
+     * Separa el string acorde a la medida indicada con el
+     * separador dado.
+     * @param text El string a dividir, intervalo el número de espacios, sepeparador
+     * @return El texto separado
      */
     public static String cortarCadaX(String text, int intervalo, String separador) {
         if (text == null) return null;
@@ -40,7 +40,12 @@ public class JPStrings  {
         return resultado;
     }
 
-
+    /**
+     *
+     * Pasa el texto dado a camelCase
+     * @param text El string a convertir
+     * @return El texto in CameCase
+     */
     public static String toCamelCase(String text) {
         if (text == null) return null;
         if(text.length() == 0) return "";
@@ -57,13 +62,19 @@ public class JPStrings  {
         return resultado;
     }
 
+    /**
+     *
+     * Centra el texto acorde a la medida dada.
+     * @param text El string a centrar, width es la anchura total del string
+     * @return El texto centrado
+     */
     public static String centrar(String text, int width) {
         if (text == null) return null;
         if(text.length() == 0) return "";
-        String resultado = "L";
+
 
         int inicioTexto = width/2;
 
-        return resultado;
+        return "".repeat(inicioTexto) + text + "".repeat(inicioTexto);
     }
 }
