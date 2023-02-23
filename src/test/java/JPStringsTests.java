@@ -6,19 +6,37 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class JPStringsTests {
 
     @Test
-    void testAll() {
-        JPStrings jpStrings = new JPStrings();
-        assertEquals("Gerard", jpStrings.capitalizar("gerard"));
-        assertEquals("Gerard", jpStrings.capitalizar("GErard"));
+    void testCapitalizar() {
+        assertEquals("Gerard", JPStrings.capitalizar("gerard"));
+        assertEquals("Gerard", JPStrings.capitalizar("GErard"));
+        assertEquals(".,-&", JPStrings.capitalizar(".,-&"));
+        assertEquals("", JPStrings.capitalizar(""));
+        assertEquals(null, JPStrings.capitalizar(null));
 
-        assertEquals("hola-papa-mama", jpStrings.cortarCadaX("holapapamama", 4 ,"-"));
-        assertEquals("holap/apama/ma", jpStrings.cortarCadaX("holapapamama", 5 ,"/"));
+    }
 
-        assertEquals("HolaQueTal", jpStrings.toCamelCase("hola que tal"));
-        assertEquals("HolaQueTal", jpStrings.toCamelCase("HOLA QUE TAL"));
+    @Test
+    void testCortarCadaX() {
 
-        assertEquals("   hola   ", jpStrings.centrar("hola", 10));
-        assertEquals("  holas   ", jpStrings.centrar("holas", 10));
+        assertEquals("hola-papa-mama", JPStrings.cortarCadaX("holapapamama", 4, "-"));
+        assertEquals("holap/apama/ma", JPStrings.cortarCadaX("holapapamama", 5, "/"));
+        assertEquals(null, JPStrings.cortarCadaX(null, 5, "/"));
+        assertEquals("", JPStrings.cortarCadaX("", 5, "/"));
+        assertEquals("*^.**.*%.&&.%$/", JPStrings.cortarCadaX("*^***%&&%$/", 2, "."));
+
+    }
+
+    @Test
+    void testToCamelCase() {
+        assertEquals("HolaQueTal", JPStrings.toCamelCase("hola que tal"));
+        assertEquals("HolaQueTal", JPStrings.toCamelCase("HOLA QUE TAL"));
+        assertEquals(null, JPStrings.toCamelCase(null));
+    }
+
+    @Test
+    void testCentrar() {
+        assertEquals("   hola   ", JPStrings.centrar("hola", 10));
+        assertEquals("  holas   ", JPStrings.centrar("holas", 10));
     }
 
 
